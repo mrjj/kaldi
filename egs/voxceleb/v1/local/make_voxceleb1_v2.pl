@@ -25,8 +25,12 @@ if ("$dataset" ne "dev" && "$dataset" ne "test") {
 if (system("mkdir -p $out_dir") != 0) {
   die "Error making directory $out_dir";
 }
+<<<<<<< HEAD
 print STDOUT "dh $dh\n";
 print STDOUT "wav $data_base/$dataset/wav\n";
+=======
+
+>>>>>>> 2c25629d7f7bff998fc8aa02dae85a936dc093d9
 opendir my $dh, "$data_base/$dataset/wav" or die "Cannot open directory: $!";
 my @spkr_dirs = grep {-d "$data_base/$dataset/wav/$_" && ! /^\.{1,2}$/} readdir($dh);
 closedir $dh;
@@ -122,4 +126,7 @@ system("env LC_COLLATE=C utils/fix_data_dir.sh $out_dir");
 if (system("env LC_COLLATE=C utils/validate_data_dir.sh --no-text --no-feats $out_dir") != 0) {
   die "Error validating directory $out_dir";
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2c25629d7f7bff998fc8aa02dae85a936dc093d9
