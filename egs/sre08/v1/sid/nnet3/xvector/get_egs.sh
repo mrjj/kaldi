@@ -16,7 +16,7 @@
 # scripts, extracts the training examples used to train the neural net (and
 # also the validation examples used for diagnostics), and puts them in
 # separate archives.
-
+set -e -x
 
 # Begin configuration section.
 cmd=run.pl
@@ -191,7 +191,7 @@ fi
 # contents of exp/$dir/temp/ranges.* before proceeding to the next stage.
 if [ $stage -le 3 ]; then
   echo "$0: Generating training examples on disk"
-  rm $dir/.error 2>/dev/null
+  rm -rf $dir/.error 2>/dev/null
   for g in $(seq $nj); do
     outputs=$(awk '{for(i=1;i<=NF;i++)printf("ark:%s ",$i);}' $temp/outputs.$g)
     $cmd $dir/log/train_create_examples.$g.log \

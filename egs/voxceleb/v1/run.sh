@@ -11,8 +11,8 @@
 . ./cmd.sh
 . ./path.sh
 set -e
-mfccdir=`pwd`/mfcc
-vaddir=`pwd`/mfcc
+mfccdir=/data/data/mfcc
+vaddir=/data/data/mfcc
 
 # The trials file is downloaded by local/make_voxceleb1.pl.
 voxceleb1_trials=data/voxceleb1_test/trials
